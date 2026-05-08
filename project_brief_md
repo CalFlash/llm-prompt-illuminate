@@ -1,0 +1,41 @@
+# Los Angeles Finance Intelligence Assistant
+
+## What this project is
+This project is a lightweight AI assistant that answers questions about Los Angeles finance data using a local JSON dataset, project notes, and repository instructions.
+
+## Why this project matters
+Recruiters and hiring managers usually want proof that a candidate can turn raw data into a usable product. This repo shows a simple but practical pattern:
+- structured data ingestion
+- prompt design
+- API integration
+- local development workflow
+- explainable outputs from source files
+
+## Problem
+Financial data is often stored in raw files that are hard for non-technical users to explore quickly. This project turns a JSON dataset into a simple question-answer interface.
+
+## Solution
+The app reads three repository files as its working context:
+- `Readme.md` for project-level guidance
+- `Dataset.notes` for assumptions and data notes
+- `Losangeles_finance.json` for source data
+
+A small Node/Express server sends that context to the OpenAI Responses API and returns a plain-English answer to the user.
+
+## Architecture
+```text
+User question
+   ↓
+Local web UI
+   ↓
+Node / Express server
+   ↓
+Reads:
+- Readme.md
+- Dataset.notes
+- Losangeles_finance.json
+   ↓
+OpenAI Responses API
+   ↓
+Plain-English answer
+
